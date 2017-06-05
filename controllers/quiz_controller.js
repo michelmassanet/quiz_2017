@@ -242,6 +242,7 @@ if(req.session.nojugados.length>n){
 res.render('quizzes/random_play.ejs',{quiz:req.session.nojugados[n],
 					score:req.session.score});
 }else{
+
 	res.render('quizzes/random_none.ejs', {score: req.session.score});
 	n=0;
 	req.session.score=0;
@@ -278,5 +279,6 @@ if(result){ req.session.score++;
 	result: result,
         answer: answer
     });
-if(!result){ req.session.score=0;}
+if(!result){ req.session.score=0;
+		n=0;}
 };
