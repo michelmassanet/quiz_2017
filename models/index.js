@@ -29,7 +29,7 @@ var Quiz = sequelize.import(path.join(__dirname, 'quiz'));
 //var Quiz= require("./quiz");
 
 
-
+/*
 //Crear tablas (tema8)
 
 sequelize.sync()
@@ -39,5 +39,5 @@ sequelize.sync()
 	console.log("Error creando las tablas de la BBDD;", error);
 	process.exit(1);
 });
-
+*/
 exports.Quiz = Quiz; // exportar definición de tabla Quiz
