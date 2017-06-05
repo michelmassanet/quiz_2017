@@ -1,4 +1,4 @@
-<html>
+
 <h1>
     Jugar:
 </h1>
@@ -16,4 +16,3 @@
 </form>
 
 <a href="/quizzes"><button>Volver</button></a>
-</html>

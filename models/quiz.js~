@@ -47,8 +47,8 @@ module.exports = function (sequelize, DataTypes) {
         });
 };
 
-//var nextId= quizzes.length +1;
-var nextId= 0;
+var nextId= quizzes.length +1;
+//var nextId= 0;
 //Crea un nuevo quiz con los valores pasados como parametro
 
 exports.create =function(quiz){

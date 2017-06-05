@@ -231,7 +231,6 @@ exports.random = function (req, res, next) {
 models.Quiz.findAll().then(function(quizzes){
 
 req.session.score=req.session.score ||0;
-
 if(n==0){
 req.session.score=0;
 }
