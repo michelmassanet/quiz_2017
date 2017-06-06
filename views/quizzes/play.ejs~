@@ -41,7 +41,7 @@
       <% include ../tips/index %>
   
     
-
+ <small> <span id="autor">(by <%= quiz.Tips.Author ? quiz.Tips.Author.username: "Anómino" %>) </span></small>
       
             
   

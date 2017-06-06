@@ -16,7 +16,7 @@
 
 
 <h1>
-    Pistas: 
+    Pistas:  <span id="autor">oso</span>.
 </h1>
 
 <% if (session.user) { %>
