@@ -37,6 +37,7 @@ exports.adminOrAuthorTipRequired = function(req, res, next){
         console.log('Operación prohibida: El usuario logeado no es el autor del quiz, ni un administrador.');
         res.send(403);
     }
+
 };
 
 
