@@ -50,7 +50,7 @@ User.hasMany(Tip,{foreignKey: 'AuthorId'});
 Tip.belongsTo(User,{as: 'Author', foreignKey: 'AuthorId'});
 
 
-
+/*
 sequelize.sync()
 .then(function(){
 	console.log('Bases de datos creadas con éxito');
@@ -58,7 +58,7 @@ sequelize.sync()
 	console.log("Error creando las tablas de la BBDD;", error);
 	process.exit(1);
 });
-
+*/
 exports.Quiz = Quiz; // exportar definición de tabla Quiz
 exports.Tip = Tip;   // exportar definición de tabla Tips
 exports.User = User; // exportar definición de tabla Users
