@@ -328,10 +328,12 @@ exports.randomcheck = function (req, res, next) {
 
 	
 if(result){ req.session.score++;
-		n++;}else{
+		n++;}
+/*else{
 req.session.score=0;
 		n=0;
 }
+*/
     res.render('quizzes/random_result.ejs', {
         score: req.session.score,
 	result: result,
