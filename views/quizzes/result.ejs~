@@ -13,7 +13,9 @@
     <% } %>
 </p>
 
-
+<<<<<<< HEAD
+<a href="/goback"><button>Volver</button></a>
+=======
 <a href="/quizzes"><button>Volver</button></a>
 </html>
-
+>>>>>>> practica52

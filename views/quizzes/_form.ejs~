@@ -1,4 +1,4 @@
-<html>
+
 <div class="wideRow">
 <label for="preg"  class="itemNarrow">Pregunta:</label>
 <input type="text" class="itemWide" id="preg" name="question" value="<%= quiz.question %>" placeholder="Pregunta" autocomplete="off"/>
@@ -11,7 +11,6 @@
 </div>
 
 <br/>
-<a href="/goback"><button type="button">Cancelar</button></a>
+<a href="/quizzes"><button type="button">Cancelar</button></a>
 
 <input type="submit" value="Salvar">
-</html>

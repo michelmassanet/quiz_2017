@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 
 
 <div class="right">
     <small> (by <%= quiz.Author ? quiz.Author.username : "Anómino" %>) </small>
 </div>
 
+=======
+<html>
+>>>>>>> practica52
 <h1>
     Jugar:
 </h1>
@@ -41,7 +45,7 @@
       <% include ../tips/index %>
   
     
- <small> <span id="autor">(by <%= quiz.Tips.Author ? quiz.Tips.Author.username: "Anómino" %>) </span></small>
+
       
             
   
@@ -58,3 +62,4 @@
 
 
 <a href="/quizzes"><button>Volver</button></a>
+</html>
