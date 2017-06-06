@@ -326,14 +326,15 @@ exports.randomcheck = function (req, res, next) {
 
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
 
-	
+	req.session.score=req.session.score ||0;
+
 if(result){ req.session.score++;
 		n++;}
-/*else{
+else{
 req.session.score=0;
 		n=0;
 }
-*/
+
     res.render('quizzes/random_result.ejs', {
         score: req.session.score,
 	result: result,
