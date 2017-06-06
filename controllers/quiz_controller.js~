@@ -1,25 +1,17 @@
 var models = require("../models");
 var Sequelize = require('sequelize');
-<<<<<<< HEAD
-
-=======
 var n=0;
->>>>>>> practica52
 var paginate = require('../helpers/paginate').paginate;
 
 // Autoload el quiz asociado a :quizId
 exports.load = function (req, res, next, quizId) {
 
-<<<<<<< HEAD
     models.Quiz.findById(quizId, {
         include: [
             {model:models.Tip,include: [{model:models.User,as:'Author'}]},
             {model: models.User, as: 'Author'}
         ]
     })
-=======
-    models.Quiz.findById(quizId)
->>>>>>> practica52
     .then(function (quiz) {
         if (quiz) {
             req.quiz = quiz;
@@ -33,7 +25,6 @@ exports.load = function (req, res, next, quizId) {
     });
 };
 
-<<<<<<< HEAD
 // MW que permite acciones solamente si al usuario logeado es admin o es el autor del quiz.
 exports.adminOrAuthorTipRequired = function(req, res, next){
 
@@ -63,28 +54,21 @@ exports.adminOrAuthorRequired = function(req, res, next){
     }
 };
 
-=======
->>>>>>> practica52
 
 // GET /quizzes
 exports.index = function (req, res, next) {
 
-<<<<<<< HEAD
     var countOptions = {
         where: {}
     };
 
     var title = "Preguntas";
-=======
-    var countOptions = {};
->>>>>>> practica52
 
     // Busquedas:
     var search = req.query.search || '';
     if (search) {
         var search_like = "%" + search.replace(/ +/g,"%") + "%";
 
-<<<<<<< HEAD
         countOptions.where.question = { $like: search_like };
     }
 
@@ -92,9 +76,6 @@ exports.index = function (req, res, next) {
     if (req.user) {
         countOptions.where.AuthorId = req.user.id;
         title = "Preguntas de " + req.user.username;
-=======
-        countOptions.where = {question: { $like: search_like }};
->>>>>>> practica52
     }
 
     models.Quiz.count(countOptions)
@@ -115,22 +96,15 @@ exports.index = function (req, res, next) {
 
         findOptions.offset = items_per_page * (pageno - 1);
         findOptions.limit = items_per_page;
-<<<<<<< HEAD
         findOptions.include = [{model: models.User, as: 'Author'}];
-=======
->>>>>>> practica52
 
         return models.Quiz.findAll(findOptions);
     })
     .then(function (quizzes) {
         res.render('quizzes/index.ejs', {
             quizzes: quizzes,
-<<<<<<< HEAD
             search: search,
             title: title
-=======
-            search: search
->>>>>>> practica52
         });
     })
     .catch(function (error) {
@@ -141,13 +115,6 @@ exports.index = function (req, res, next) {
 
 // GET /quizzes/:quizId
 exports.show = function (req, res, next) {
-<<<<<<< HEAD
-
-    res.render('quizzes/show', {quiz: req.quiz});
-};
-
-
-=======
 	//var quizId = Number(req.params.quizId);
 	//var quiz = models.Quiz.findById(quizId);
 
@@ -159,7 +126,6 @@ exports.show = function (req, res, next) {
 
 
 
->>>>>>> practica52
 // GET /quizzes/new
 exports.new = function (req, res, next) {
 
@@ -169,7 +135,7 @@ exports.new = function (req, res, next) {
 };
 
 
-<<<<<<< HEAD
+
 // POST /quizzes/create
 exports.create = function (req, res, next) {
 
@@ -181,18 +147,10 @@ exports.create = function (req, res, next) {
         AuthorId: authorId
     });
 
+<<<<<<< HEAD
     // guarda en DB los campos pregunta y respuesta de quiz
     quiz.save({fields: ["question", "answer", "AuthorId"]})
 =======
-
-// POST /quizzes/create
-exports.create = function (req, res, next) {
-
-    var quiz = models.Quiz.build({
-        question: req.body.question,
-        answer: req.body.answer
-    });
-
 
 //validar que no estan vacios
 
@@ -221,14 +179,11 @@ if(!quiz.question || !quiz.answer){
         req.flash('error', 'Error al crear un Quiz: ' + error.message);
         next(error);
     });
-<<<<<<< HEAD
-=======
 
 //guarda el nuevo quiz
 //quiz =models.Quiz.create(quiz);
 //res.redirect('/quizzes/' + quiz.id);
 
->>>>>>> practica52
 };
 
 
@@ -269,12 +224,6 @@ exports.update = function (req, res, next) {
 // DELETE /quizzes/:quizId
 exports.destroy = function (req, res, next) {
 
-<<<<<<< HEAD
-    req.quiz.destroy()
-    .then(function () {
-        req.flash('success', 'Quiz borrado con éxito.');
-        res.redirect('/goback');
-=======
 
 	//var quizId=Numer(req.params.quizId);
 	//var quiz= models.Quiz.findById(quizId);
@@ -286,28 +235,20 @@ exports.destroy = function (req, res, next) {
     req.quiz.destroy()
     .then(function () {
         req.flash('success', 'Quiz borrado con éxito.');
-        res.redirect('/quizzes');
->>>>>>> practica52
+        res.redirect('/goback');
     })
     .catch(function (error) {
         req.flash('error', 'Error al editar el Quiz: ' + error.message);
         next(error);
     });
-<<<<<<< HEAD
-=======
 
->>>>>>> practica52
 };
 
 
 // GET /quizzes/:quizId/play
 exports.play = function (req, res, next) {
-<<<<<<< HEAD
-
-=======
 //var quizId = Number(req.params.quizId);
 	//var quiz = models.Quiz.findById(quizId);
->>>>>>> practica52
     var answer = req.query.answer || '';
 
     res.render('quizzes/play', {
@@ -324,19 +265,14 @@ exports.check = function (req, res, next) {
 
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
 
-<<<<<<< HEAD
-=======
 	//if(result) score++;
 
->>>>>>> practica52
     res.render('quizzes/result', {
         quiz: req.quiz,
         result: result,
         answer: answer
     });
 };
-<<<<<<< HEAD
-=======
 
 
 
@@ -401,4 +337,3 @@ if(result){ req.session.score++;
 if(!result){ req.session.score=0;
 		n=0;}
 };
->>>>>>> practica52

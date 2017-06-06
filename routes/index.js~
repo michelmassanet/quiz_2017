@@ -124,6 +124,8 @@ router.delete('/quizzes/:quizId(\\d+)',
     sessionController.loginRequired,
     quizController.adminOrAuthorRequired,
     quizController.destroy);
+router.get('/quizzes/randomplay',       quizController.random);
+router.get('/quizzes/randomcheck/:quizId', quizController.randomcheck);
 
 router.get('/quizzes/:quizId(\\d+)/play',
     quizController.play);
@@ -144,7 +146,7 @@ router.put('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)/accept',
 router.delete('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
     sessionController.loginRequired,
     tipController.destroy);
-=======
+/*
 router.get('/quizzes',                     quizController.index);
 router.get('/quizzes/:quizId(\\d+)',       quizController.show);
 //router.get('view/quizzes',       quizController.play);
@@ -159,7 +161,7 @@ router.delete('/quizzes/:quizId(\\d+)',    quizController.destroy);
 
 router.get('/quizzes/:quizId(\\d+)/play',  quizController.play);
 router.get('/quizzes/:quizId(\\d+)/check', quizController.check);
->>>>>>> practica52
+*/
 
 
 module.exports = router;

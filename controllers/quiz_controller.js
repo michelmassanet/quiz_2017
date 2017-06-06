@@ -147,10 +147,10 @@ exports.create = function (req, res, next) {
         AuthorId: authorId
     });
 
-<<<<<<< HEAD
+
     // guarda en DB los campos pregunta y respuesta de quiz
     quiz.save({fields: ["question", "answer", "AuthorId"]})
-=======
+
 
 //validar que no estan vacios
 
@@ -161,7 +161,7 @@ if(!quiz.question || !quiz.answer){
 
     //guarda en DB los campos pregunta y respuesta de quiz
   quiz.save({fields: ["question", "answer"]})
->>>>>>> practica52
+
     .then(function (quiz) {
         req.flash('success', 'Quiz creado con éxito.');
         res.redirect('/quizzes/' + quiz.id);
